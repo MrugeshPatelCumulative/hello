@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/Mrugesh
+  deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
+      - run:
+          name: add_file
+          command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"  
+  # deploy:
+  #   dev:
+  #     branch: dev
+  #     commands:
+  #       - ssh $USER_NAME@$USER_IP 'cd /var/www/html/Mrugesh/ && data.txt'
