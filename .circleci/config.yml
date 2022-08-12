@@ -4,7 +4,6 @@ jobs:
     machine:
       image: ubuntu-1604:202104-01
     steps:
-      - checkout
       - run:
           name: "Testing"
           command: echo "Hi"
