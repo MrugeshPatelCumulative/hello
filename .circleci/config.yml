@@ -1,41 +1,44 @@
-version: 2
+# version: 2
 
-jobs:
-    build:
-    #...
-    deploy:
-    machine:
-        enabled: true
-    steps:
-        - run:
-            name: Deploy Over SSH
-            command: |
-            ssh $SSH_USER@$SSH_HOST "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
-
-workflows:
-    version: 2
-    build-and-deploy:
-    jobs:
-        - build
-        - deploy:
-            requires:
-            - build # only deploy once build job has completed
-            filters:
-            branches:
-                only: main # only deploy on the main branch
-
-# version: 2.1
 # jobs:
-#   build:
+#     build:
+#     #...
+#     deploy:
 #     machine:
-#       image: ubuntu-2204:2022.04.1
+#         enabled: true
 #     steps:
-#       - add_ssh_keys:
-#           fingerprints:
-#             - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
-#       - run:
-#           name: "Testing"
-#           command: echo "Hi"
+#         - run:
+#             name: Deploy Over SSH
+#             command: |
+#             ssh $SSH_USER@$SSH_HOST "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
+
+# workflows:
+#     version: 2
+#     build-and-deploy:
+#     jobs:
+#         - build
+#         - deploy:
+#             requires:
+#             - build # only deploy once build job has completed
+#             filters:
+#             branches:
+#                 only: main # only deploy on the main branch
+
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-2204:2022.04.1
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
+      - run:
+          name: "Testing"
+          command: echo "Hi"
+      - run:
+          name: "Testing"
+          command: "pwd"
       # - run:
       #     name: add_file
       #     command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
