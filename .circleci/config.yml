@@ -1,15 +1,27 @@
-version: 2.1
+# version: 2.1
+# jobs:
+#   build:
+#     machine:
+#       image: ubuntu-2204:2022.04.1
+#     steps:
+#       - add_ssh_keys:
+#           fingerprints:
+#             - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
+#       - run:
+#           name: "Testing"
+#           command: echo "Hi"
+      # - run:
+      #     name: add_file
+      #     command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
+version: 2
 jobs:
   build:
-    machine:
-      image: ubuntu-2204:2022.04.1
+    working_directory: ~/Mrugesh
+  deploy-job:
     steps:
       - add_ssh_keys:
           fingerprints:
             - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
       - run:
-          name: "Testing"
-          command: echo "Hi"
-      # - run:
-      #     name: add_file
-      #     command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
+          name: add_file
+          command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"  
