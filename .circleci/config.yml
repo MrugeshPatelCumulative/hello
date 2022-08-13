@@ -38,13 +38,19 @@ jobs:
       - run:
           name: "Testing"
           command: echo "Hi"
-      - run: ssh root@159.89.173.44 "pwd"
       - run:
           name: "Testing"
           command: "pwd"
       # - run:
       #     name: add_file
       #     command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy to server
+          command: ssh $SSH_USER@$SSH_HOST "pwd"
 # version: 2
 # jobs:
 #   build:
