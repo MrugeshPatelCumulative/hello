@@ -15,6 +15,6 @@ set -e
 
 ssh $SSH_USER@$SSH_HOST
 
-cd /var/www/html/Mrugesh/
-git pull https://github.com/MrugeshPatelCumulative/hello.git
-exit
+echo "cd /var/www/html/Mrugesh/"
+echo "git pull https://github.com/MrugeshPatelCumulative/hello.git"
+echo "exit"
