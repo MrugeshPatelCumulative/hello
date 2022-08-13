@@ -27,9 +27,10 @@
 version: 2.1
 jobs:
   build:
-    # machine:
-    #   image: ubuntu-2204:2022.04.1
+    machine:
+      image: ubuntu-2204:2022.04.1
     steps:
+      - checkout
       - add_ssh_keys:
           fingerprints:
             - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
