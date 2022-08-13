@@ -16,5 +16,5 @@ set -e
 ssh $SSH_USER@$SSH_HOST
 
 cd /var/www/html/Mrugesh/
-touch test1.txt
+git pull https://github.com/MrugeshPatelCumulative/hello.git
 exit
