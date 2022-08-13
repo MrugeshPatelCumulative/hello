@@ -38,9 +38,7 @@ jobs:
       - run:
           name: "Testing"
           command: echo "Hi"
-      - run:
-          name: "Testing"
-          command: "cd ~"
+      - run: ssh $SSH_USER@$SSH_HOST "pwd"
       - run:
           name: "Testing"
           command: "pwd"
