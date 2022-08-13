@@ -71,6 +71,9 @@ jobs:
           fingerprints:
             - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
       - run:
+          name: Update known hosts
+          command: ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+      - run:
           name: "Testing"
           command: echo "Hi"
       - run: ssh $SSH_USER@$SSH_HOST -v
