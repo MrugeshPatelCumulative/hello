@@ -40,6 +40,9 @@ jobs:
           command: echo "Hi"
       - run:
           name: "Testing"
+          command: "cd ~"
+      - run:
+          name: "Testing"
           command: "pwd"
       # - run:
       #     name: add_file
