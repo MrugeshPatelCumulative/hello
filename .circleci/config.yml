@@ -26,21 +26,21 @@
 
 version: 2.1
 jobs:
-  build:
-    working_directory: ~/Mrugesh
-    machine:
-      image: ubuntu-2204:2022.04.1
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
-      - run:
-          name: "Testing"
-          command: echo "Hi"
-      - run:
-          name: "Testing"
-          command: "pwd"
+  # build:
+  #   working_directory: ~/Mrugesh
+  #   machine:
+  #     image: ubuntu-2204:2022.04.1
+  #   steps:
+  #     - checkout
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
+  #     - run:
+  #         name: "Testing"
+  #         command: echo "Hi"
+  #     - run:
+  #         name: "Testing"
+  #         command: "pwd"
       # - run:
       #     name: add_file
       #     command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
