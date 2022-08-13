@@ -32,7 +32,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "e6:49:0d:ff:ae:0c:d4:3b:7f:21:b0:8e:09:bc:f1:77"
+            - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
       - run:
           name: "Testing"
           command: echo "Hi"
