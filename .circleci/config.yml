@@ -73,7 +73,7 @@ jobs:
       - run:
           name: "Testing"
           command: echo "Hi"
-      - run: ssh $SSH_USER@$SSH_HOST "pwd"
+      - run: ssh $SSH_USER@$SSH_HOST -v
 
 # Orchestrate our job run sequence
 workflows:
