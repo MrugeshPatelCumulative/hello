@@ -12,4 +12,9 @@ set -e
 # git commit -m "Deploying"
 # git remote add production ssh://git@github.com:MrugeshPatelCumulative/hello.git
 # git push --force production master
-ssh $SSH_USER@$SSH_HOST "cd /var/www/html/Mrugesh/ && touch test1.txt && exit"
+
+ssh $SSH_USER@$SSH_HOST
+
+cd /var/www/html/Mrugesh/
+touch test1.txt
+exit
