@@ -38,7 +38,7 @@ jobs:
       - run:
           name: "Testing"
           command: echo "Hi"
-      - run: ssh $SSH_USER@$SSH_HOST "pwd"
+      - run: ssh root@159.89.173.44 "pwd"
       - run:
           name: "Testing"
           command: "pwd"
