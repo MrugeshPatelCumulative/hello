@@ -51,6 +51,16 @@ jobs:
       - run:
           name: Deploy to server
           command: ssh $SSH_USER@$SSH_HOST "pwd"
+
+workflows:
+  version: 2
+  build-project:
+    jobs:
+      - pull-and-build:
+          filters:
+            branches:
+              only:
+                - main
 # version: 2
 # jobs:
 #   build:
