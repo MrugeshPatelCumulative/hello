@@ -24,43 +24,27 @@
 #             branches:
 #                 only: main # only deploy on the main branch
 
-version: 2.1
-jobs:
-  # build:
-  #   working_directory: ~/Mrugesh
-  #   machine:
-  #     image: ubuntu-2204:2022.04.1
-  #   steps:
-  #     - checkout
-  #     - add_ssh_keys:
-  #         fingerprints:
-  #           - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
-  #     - run:
-  #         name: "Testing"
-  #         command: echo "Hi"
-  #     - run:
-  #         name: "Testing"
-  #         command: "pwd"
+# version: 2.1
+# jobs:
+#   build:
+#     working_directory: ~/Mrugesh
+#     machine:
+#       image: ubuntu-2204:2022.04.1
+#     steps:
+#       - checkout
+#       - add_ssh_keys:
+#           fingerprints:
+#             - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
+#       - run:
+#           name: "Testing"
+#           command: echo "Hi"
+#       - run: ssh $SSH_USER@$SSH_HOST "pwd"
+#       - run:
+#           name: "Testing"
+#           command: "pwd"
       # - run:
       #     name: add_file
       #     command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"
-  deploy:
-    machine:
-      enabled: true
-    steps:
-      - run:
-          name: Deploy to server
-          command: ssh $SSH_USER@$SSH_HOST "pwd"
-
-workflows:
-  version: 2
-  build-project:
-    jobs:
-      - pull-and-build:
-          filters:
-            branches:
-              only:
-                - main
 # version: 2
 # jobs:
 #   build:
@@ -73,3 +57,31 @@ workflows:
 #       - run:
 #           name: add_file
 #           command: "cd /var/www/html/Mrugesh/ && touch test.txt && exit"  
+
+version: 2.1
+
+# Define the jobs we want to run for this project
+jobs:
+  pull-and-build:
+    docker:
+      - image: arvindr226/alpine-ssh
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "65:e1:e6:3e:69:08:e6:83:d5:96:fb:41:7e:f5:d3:4e"
+      - run:
+          name: "Testing"
+          command: echo "Hi"
+      - run: ssh $SSH_USER@$SSH_HOST "pwd"
+
+# Orchestrate our job run sequence
+workflows:
+  version: 2
+  build-project:
+    jobs:
+      - pull-and-build:
+          filters:
+            branches:
+              only:
+                - main
